@@ -132,11 +132,8 @@ Build a web application game that asks players to guess the answer to a pictoria
 
 ### 5. Wireframes
 
-<!--
-![Mobile Wireframes](http://bit.ly/2Fx7Pdd)
+![Wireframes](https://raw.githubusercontent.com/sarahloh/p2-riddle-game/master/assets/images/readme/wireframe.jpg)
 
-![Mobile Wireframes](http://bit.ly/2oWn6Kx)
- -->
 
 ### 6. Testing
 
