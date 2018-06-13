@@ -52,7 +52,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 
 ### 3. Workflow
 
-- Find riddles
+- Find riddles and create riddles.json
 - Create project directory with readme
 - Create git repo
 - Work on UXD up to Skeleton plane
@@ -63,6 +63,8 @@ Build a web application game that asks players to guess the answer to a pictoria
 - Create requirements.txt
 - Create run.py
 - Get Flask app up and running
+- Create players.json
+- Experiment with reading and writing json
 - Create test.py
 - Write a test in test.py
 - Write the code to pass the test in run.py
