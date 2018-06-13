@@ -27,3 +27,10 @@ class TestRiddleGame(unittest.TestCase):
         players[0]["available"] = False
         run.update_players(players)
         self.assertEqual(run.load_players()[0]["available"], False)
+
+    def test_compare_answer(self):
+        """
+        Test to check if an inputted answer is correct or not
+        """
+        riddles = run.load_riddles()
+        self.assertEqual(run.check_answer(riddles[0], "mountain"), True)
