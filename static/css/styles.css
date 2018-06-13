@@ -1,0 +1,19 @@
+.cover-container {
+    max-width: 90%;
+}
+
+.masthead-brand span {
+    font-size: 1.2rem;
+}
+
+.player-icon {
+    padding: 1rem;
+}
+
+.player-icon a {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: top;
+    margin: 0 auto;
+}
