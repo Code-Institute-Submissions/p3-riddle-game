@@ -34,3 +34,4 @@ class TestRiddleGame(unittest.TestCase):
         """
         riddles = run.load_riddles()
         self.assertEqual(run.check_answer(riddles[0], "mountain"), True)
+        self.assertEqual(run.check_answer(riddles[0], "river"), False)
