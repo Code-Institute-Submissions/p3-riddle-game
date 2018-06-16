@@ -41,8 +41,14 @@ def game(player_url, riddle_number):
     return render_template("game.html", riddle=riddles[current_riddle], riddle_number=riddle_number)
 
 
-
+# T run on Heroku
+# if __name__ == '__main__':
+#     app.run(host=os.getenv('IP'),
+#             port=os.getenv('POST'),
+#             debug=True)
+            
+# To run in Cloud 9
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'),
-            port=os.getenv('POST'),
+    app.run(host=os.getenv('IP', '8080'),
+            port=os.getenv('PORT', '0.0.0.0'),
             debug=True)
