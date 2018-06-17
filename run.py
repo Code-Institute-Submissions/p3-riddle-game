@@ -47,9 +47,17 @@ def game(player_url, riddle_number):
     if request.method == "POST":
 
         user_input = request.form["answer"]
-        # Correct answer - go to next riddle
+
+        # Correct answer - go to next riddle or end game
         if check_answer(riddles[current_riddle_index], user_input):
-            return redirect(url_for('game',player_url=player_url, riddle_number=next_riddle_number))
+
+            # All riddles answered
+            if current_riddle_index == len(riddles)-1:
+                return redirect(url_for('index'))
+
+            # Next riddle
+            else:
+                return redirect(url_for('game',player_url=player_url, riddle_number=next_riddle_number))
 
         # Incorrect answer - try again
         else:
