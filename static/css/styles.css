@@ -16,6 +16,10 @@ hr {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+header a:hover {
+    text-decoration: none;
+}
+
 /*------------------------ index */
 .player-icon {
     padding: 1rem;
