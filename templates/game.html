@@ -2,20 +2,46 @@
 
 <h3>Riddle {{ riddle_number }}</h3>
 
-{% set lines = riddle.question.split('\n') %}
+<div class="container riddle">
+
+    {% set lines = riddle.question.split('\n') %}
 {% for line in lines %}
     <p>{{ line }}</p>
 {% endfor %}
 
-<form method="POST">
-    <div class="form-group">
-        <label for="answer">Enter your answer:</label>
-        <textarea class="form-control" name="answer" id="answer" rows="1"></textarea>
+</div>
 
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<hr>
+
+<div class="container form-answer">
+    <form method="POST" class="w-50 mx-auto">
+        <div class="form-group">
+            <label for="answer">Enter your answer:</label>
+            <textarea class="form-control" name="answer" id="answer" rows="1"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
 <p>{{ incorrect_msg }}</p>
+
+<hr>
+
+<div class="container leaderboard mt-5 pb-4">
+    <h3>Leaderboard</h3>
+    {% for player in players %}
+        {% if player.active %}
+            <div class="row">
+                <div class="col-4">
+                    <div class="player-image" style="background-image:url('{{ player.image_source }}')"></div>
+                </div>
+                <div class="col-8 text-left">
+                    <p>{{ player.name }} : {{ player.score }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</div>
 
 {% endblock %}

@@ -1,3 +1,9 @@
+
+/*------------------------ general */
+body {
+    box-shadow: none;
+}
+
 .cover-container {
     max-width: 90%;
 }
@@ -6,6 +12,11 @@
     font-size: 1.2rem;
 }
 
+hr {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/*------------------------ index */
 .player-icon {
     padding: 1rem;
 }
@@ -16,4 +27,14 @@
     background-size: cover;
     background-position: top;
     margin: 0 auto;
+}
+
+/*------------------------ game */
+
+.leaderboard .player-image {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: top;
+    float: right;
 }
