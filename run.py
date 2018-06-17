@@ -31,6 +31,15 @@ def update_players(players):
 def check_answer(riddle, answer):
     return riddle["answer"] == answer
 
+def increment_score(player_url):
+    players = load_players()
+    index = 0
+    for i, p in enumerate(players):
+        if p["url"] == player_url:
+            p["score"] = p["score"] + 1
+            index = i
+    update_players(players)
+
 
 @app.route("/")
 def index():
@@ -48,8 +57,10 @@ def game(player_url, riddle_number):
 
         user_input = request.form["answer"]
 
-        # Correct answer - go to next riddle or end game
+        # Correct answer - store player score and go to next riddle or end game
         if check_answer(riddles[current_riddle_index], user_input):
+
+            increment_score(player_url)
 
             # All riddles answered
             if current_riddle_index == len(riddles)-1:
