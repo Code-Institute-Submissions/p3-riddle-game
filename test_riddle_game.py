@@ -35,3 +35,18 @@ class TestRiddleGame(unittest.TestCase):
         riddles = run.load_riddles()
         self.assertEqual(run.check_answer(riddles[0], "mountain"), True)
         self.assertEqual(run.check_answer(riddles[0], "river"), False)
+
+    def test_reset_player(self):
+        """
+        Test to ensure we can reset a player's score and availability
+        when they finish the game
+        """
+        players = run.load_players()
+        players[0]["active"] = True
+        run.increment_score(players[0]["url"])
+        run.update_players(players)
+
+        run.reset_player(players[0]["url"])
+        self.assertEqual(run.load_players()[0]["active"], False)
+        self.assertEqual(run.load_players()[0]["score"], 0)
+
