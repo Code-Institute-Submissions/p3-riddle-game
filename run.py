@@ -40,26 +40,26 @@ def index():
 @app.route("/game/<player_url>/<riddle_number>", methods={"GET", "POST"})
 def game(player_url, riddle_number):
     riddles = load_riddles()
-    current_riddle = int(riddle_number) - 1
-    next_riddle = current_riddle + 1
+    current_riddle_index = int(riddle_number) - 1
+    next_riddle_number = int(riddle_number) + 1
 
     # POST request
     if request.method == "POST":
 
         user_input = request.form["answer"]
         # Correct answer - go to next riddle
-        if check_answer(riddles[current_riddle], user_input):
-            return redirect(url_for('game', player_url=player_url, riddle_number=int(riddle_number)+1))
+        if check_answer(riddles[current_riddle_index], user_input):
+            return redirect(url_for('game',player_url=player_url, riddle_number=next_riddle_number))
 
         # Incorrect answer - try again
         else:
             return render_template("game.html",
-                                    riddle=riddles[current_riddle],
+                                    riddle=riddles[current_riddle_index],
                                     riddle_number=riddle_number,
                                     incorrect_msg="'{0}' is not the right answer. Try again.".format(user_input))
 
     # GET request
-    return render_template("game.html", riddle=riddles[current_riddle], riddle_number=riddle_number)
+    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number)
 
 
 # To run on Heroku
