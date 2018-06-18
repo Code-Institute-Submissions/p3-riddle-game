@@ -104,7 +104,9 @@ def game(player_url, riddle_number):
                                     incorrect_msg="'{0}' is not the right answer. Try again.".format(user_input))
 
     # GET request
-    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, players=load_players())
+    leaderboard_players = sorted(load_players(), key=lambda k: k["score"], reverse=True)
+
+    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, players=leaderboard_players)
 
 
 # To run on Heroku
