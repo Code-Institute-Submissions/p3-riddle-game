@@ -1,4 +1,3 @@
-
 /*------------------------ general */
 body {
     box-shadow: none;
@@ -35,10 +34,19 @@ header a:hover {
 
 /*------------------------ game */
 
-.leaderboard .player-image {
+.leaderboard .player-icon {
     width: 50px;
     height: 50px;
     background-size: cover;
     background-position: top;
     float: right;
+}
+
+/*------------------------ game */
+
+.end-container .player-icon {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
 }

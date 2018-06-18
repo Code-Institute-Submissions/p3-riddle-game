@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container end-container">
+
+    <div class="row">
+        <div class="col-4 offset-4 player-icon text-center rounded" style="background-image:url('{{ player.image_source }}')"></div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h4>
+                Congratulations {{ player.name }}!
+            </h4>
+            <p>
+                You finished the game!
+            </p>
+            <p class="lead">
+                <a href="{{ url_for('index') }}">Return to home page</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

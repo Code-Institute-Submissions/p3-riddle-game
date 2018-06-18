@@ -88,7 +88,7 @@ def game(player_url, riddle_number):
                 # Reset player
                 reset_player(player_url)
 
-                return redirect(url_for('index'))
+                return redirect(url_for('end', player_url=player_url))
 
             # Next riddle
             else:
@@ -107,6 +107,12 @@ def game(player_url, riddle_number):
     leaderboard_players = sorted(load_players(), key=lambda k: k["score"], reverse=True)
 
     return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, players=leaderboard_players)
+
+
+@app.route("/end/<player_url>")
+def end(player_url):
+    player = [player for player in load_players() if player["url"] == player_url][0]
+    return render_template("end.html", player=player)
 
 
 # To run on Heroku
