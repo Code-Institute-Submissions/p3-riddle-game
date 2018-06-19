@@ -13,6 +13,7 @@ def load_players():
         data = json.load(read_file)
         return data
 
+
 def load_riddles():
     """
     Read riddles data from JSON file
@@ -21,6 +22,7 @@ def load_riddles():
         data = json.load(read_file)
         return data
 
+
 def update_players(players):
     """
     Update the players JSON file
@@ -28,8 +30,10 @@ def update_players(players):
     with open("data/players.json", "w") as write_file:
         json.dump(players, write_file, indent=4)
 
+
 def check_answer(riddle, answer):
-    return riddle["answer"] == answer
+    return riddle["answer"] in answer
+
 
 def increment_score(player_url):
     players = load_players()
@@ -38,6 +42,7 @@ def increment_score(player_url):
             p["score"] = p["score"] + 1
     update_players(players)
 
+
 def reset_player(player_url):
     players = load_players()
     for p in players:
@@ -45,6 +50,7 @@ def reset_player(player_url):
             p["active"] = False
             p["score"] = 0
     update_players(players)
+
 
 def set_player_active(player_url):
     players = load_players()
