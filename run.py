@@ -36,6 +36,9 @@ def check_answer(riddle, answer):
 
 
 def increment_score(player_url):
+    """
+    Update player score, called when answer is correct
+    """
     players = load_players()
     for p in players:
         if p["url"] == player_url:
@@ -44,6 +47,9 @@ def increment_score(player_url):
 
 
 def reset_player(player_url):
+    """
+    Returns a player's score to zero and active status to false
+    """
     players = load_players()
     for p in players:
         if p["url"] == player_url:
@@ -53,6 +59,9 @@ def reset_player(player_url):
 
 
 def set_player_active(player_url):
+    """
+    Changes a player's active status to true
+    """
     players = load_players()
     for p in players:
         if p["url"] == player_url:
@@ -61,6 +70,9 @@ def set_player_active(player_url):
 
 
 def get_leaderboard_players():
+    """
+    Return a sorted list of active players beginning with highest score
+    """
     players = [p for p in load_players() if p["active"]]
     return sorted(players, key=lambda k: k["score"], reverse=True)
 
