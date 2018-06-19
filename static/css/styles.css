@@ -31,6 +31,13 @@ header a:hover {
     margin: 0 auto;
 }
 
+.player-icon span {
+    display: inline-block;
+    height: 50%;
+    width: 100%;
+    margin-top: 50%;
+}
+
 .index-players .player-icon a {
     width: 100px;
     height: 100px;
@@ -70,6 +77,9 @@ header a:hover {
 
 .leaderboard .current-player {
     background-color: #fafafa;
+}
+
+.leaderboard .current-player p {
     color: black;
 }
 

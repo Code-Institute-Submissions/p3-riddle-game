@@ -11,7 +11,9 @@
         {% for player in leaderboard%}
 
         <div class="col-2 player-icon text-center">
-            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')">{{ loop.index }}</a>
+            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                <span>{{ loop.index }}</span>
+            </a>
         </div>
 
         {% endfor %}
@@ -37,7 +39,9 @@
             <a href="#" class="d-block rounded"
                     style="background-image:url('{{ player.image_source }}')"></a>
             {% else %}
-            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')"></a>
+            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                <span>{{ player.name }}</span>
+            </a>
             {% endif %}
         </div>
     {% endfor %}
