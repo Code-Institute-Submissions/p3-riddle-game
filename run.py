@@ -61,7 +61,8 @@ def set_player_active(player_url):
 
 
 def get_leaderboard_players():
-    return sorted(load_players(), key=lambda k: k["score"], reverse=True)
+    players = [p for p in load_players() if p["active"]]
+    return sorted(players, key=lambda k: k["score"], reverse=True)
 
 
 """
@@ -70,7 +71,7 @@ Views
 
 @app.route("/")
 def index():
-    return render_template("index.html", players=load_players())
+    return render_template("index.html", players=load_players(), leaderboard=get_leaderboard_players())
 
 
 @app.route("/game/<player_url>/<riddle_number>", methods={"GET", "POST"})
