@@ -1,18 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="cover-heading"><small>Select a player</small></h2>
 
-<div class="container players-container">
+<div class="container index-leaderboard">
+
+    <h3 class="cover-heading">
+        <small>Leaderboard</small>
+    </h3>
+
     <div class="row">
-
-    {% for player in players %}
+        {% for player in players if player.active %}
 
         <div class="col-2 player-icon text-center">
             <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')"></a>
         </div>
 
-    {% endfor %}
-
+        {% endfor %}
     </div>
-</div>
+    <!--/.row-->
+
+</div><!--/.index-leaderboard-->
+
+<div class="container index-players">
+
+    <h2 class="cover-heading">
+        <small>Select a player</small>
+    </h2>
+
+    <div class="row">
+    {% for player in players %}
+
+        <div class="col-2 player-icon text-center">
+            {% if player.active %}
+            <div class="overlay">
+                <p>unavailable</p>
+            </div>
+            <a href="#" class="d-block rounded"
+                    style="background-image:url('{{ player.image_source }}')"></a>
+            {% else %}
+            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')"></a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div><!--/.row-->
+
+</div><!--/.players-container-->
+
 {% endblock %}

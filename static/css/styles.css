@@ -20,16 +20,42 @@ header a:hover {
 }
 
 /*------------------------ index */
+
 .player-icon {
     padding: 1rem;
 }
 
 .player-icon a {
-    width: 100px;
-    height: 100px;
     background-size: cover;
     background-position: top;
     margin: 0 auto;
+}
+
+.index-players .player-icon a {
+    width: 100px;
+    height: 100px;
+}
+
+.index-leaderboard .player-icon a {
+    width: 50px;
+    height: 50px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.overlay p {
+    height: 100%;
+    margin: 0;
+    line-height: 100px;
+    vertical-align: text-bottom;
+    transform: rotate(-45deg);
+    color: #dd9999;
 }
 
 /*------------------------ game */
