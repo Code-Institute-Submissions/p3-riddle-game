@@ -25,12 +25,24 @@
 
 <p>{{ incorrect_msg }}</p>
 
+<p>{{ request.path.split('/')[2] }}</p>
+
 <hr>
 
 <div class="container leaderboard mt-5 pb-4">
     <h3>Leaderboard</h3>
     {% for player in players %}
         {% if player.active %}
+            {% if player.url == request.path.split('/')[2] %}
+            <div class="row current-player">
+                <div class="col-4">
+                    <div class="player-icon" style="background-image:url('{{ player.image_source }}')"></div>
+                </div>
+                <div class="col-8 text-left">
+                    <p>{{ player.name }} : {{ player.score }}</p>
+                </div>
+            </div>
+            {% else %}
             <div class="row">
                 <div class="col-4">
                     <div class="player-icon" style="background-image:url('{{ player.image_source }}')"></div>
@@ -39,6 +51,7 @@
                     <p>{{ player.name }} : {{ player.score }}</p>
                 </div>
             </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 

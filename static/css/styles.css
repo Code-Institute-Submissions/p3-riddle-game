@@ -42,6 +42,11 @@ header a:hover {
     float: right;
 }
 
+.leaderboard .current-player {
+    background-color: #fafafa;
+    color: black;
+}
+
 /*------------------------ game */
 
 .end-container .player-icon {
