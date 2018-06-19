@@ -7,18 +7,25 @@
         <small>Leaderboard</small>
     </h3>
 
+    {% for player in leaderboard%}
     <div class="row">
-        {% for player in leaderboard%}
-
-        <div class="col-2 player-icon text-center">
-            <a href="/game/{{ player.url }}/{{ player.score|int +1 }}" class="d-block rounded" style="background-image:url('{{ player.image_source }}')">
+        <div class="col-4 text-center">
+            <div class="player-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
                 <span>{{ loop.index }}</span>
-            </a>
+            </div>
         </div>
-
-        {% endfor %}
+        <div class="col-6 text-left">
+            <p>{{ player.name }}</p>
+        </div>
+        <div class="col-2 text-left">
+            <p>({{ player.score }})</p>
+        </div>
     </div>
     <!--/.row-->
+    {% endfor %}
+
+
+
 
 </div><!--/.index-leaderboard-->
 
@@ -31,7 +38,7 @@
     <div class="row">
     {% for player in players %}
 
-        <div class="col-2 player-icon text-center">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 player-icon text-center">
             {% if player.active %}
             <div class="overlay">
                 <p>unavailable</p>

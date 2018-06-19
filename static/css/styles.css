@@ -21,6 +21,16 @@ header a:hover {
 
 /*------------------------ index */
 
+.index-leaderboard .row {
+    margin: 1rem;
+}
+
+.index-leaderboard p {
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
 .player-icon {
     padding: 1rem;
 }
@@ -43,13 +53,18 @@ header a:hover {
     height: 100px;
 }
 
-.index-leaderboard .player-icon a {
+.index-leaderboard .player-icon {
     width: 50px;
     height: 50px;
+    background-size: cover;
+    background-position: top;
+    margin: 0 auto;
 }
 
 .overlay {
     position: absolute;
+    left: 0;
+    right: 0;
     width: 100px;
     height: 100px;
     background-color: rgba(255, 0, 0, 0.2);

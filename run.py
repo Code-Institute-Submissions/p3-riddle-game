@@ -73,7 +73,7 @@ def get_leaderboard_players():
     """
     Return a sorted list of active players beginning with highest score
     """
-    players = [p for p in load_players() if p["active"]]
+    players = [p for p in load_players() if p["active"] and p["score"] > 0]
     return sorted(players, key=lambda k: k["score"], reverse=True)
 
 
