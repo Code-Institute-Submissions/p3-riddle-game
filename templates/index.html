@@ -28,7 +28,7 @@
 
 </div><!--/.players-container-->
 
-<div class="container index-leaderboard">
+<div class="container index-leaderboard my-4">
 
     <h3 class="cover-heading">
         <small>Leaderboard</small>
@@ -48,7 +48,12 @@
             <p>({{ player.score }})</p>
         </div>
     </div>
-    <!--/.row-->
+
+    {% else %}
+    <p class="text-center">
+        No scores yet...
+    </p>
+
     {% endfor %}
 
 </div>

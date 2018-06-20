@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="container player">
 
@@ -26,14 +24,14 @@
 </div>
 <!--/.player-container-->
 
-<div class="container index-leaderboard">
+<div class="container leaderboard">
 
-    {% if leaderboard|length > 0 %}
     <h3 class="cover-heading">
         <small>Leaderboard</small>
     </h3>
-    {% endif %} {% for player in leaderboard%}
-    <div class="row">
+
+    {% for player in leaderboard %}
+    <div class="row {{ 'current-player' if player.url == request.path.split('/')[2] }}">
         <div class="col-4 text-center">
             <div class="player-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
                 <span>{{ loop.index }}</span>
@@ -46,7 +44,12 @@
             <p>({{ player.score }})</p>
         </div>
     </div>
-    <!--/.row-->
+
+    {% else %}
+    <p class="text-center">
+        No scores yet...
+    </p>
+
     {% endfor %}
 
 </div>
