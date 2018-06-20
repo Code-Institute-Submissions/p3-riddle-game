@@ -12,6 +12,11 @@
         <div class="col-12 player-icon text-center">
             <div class="rounded icon" style="background-image:url('{{ player[0].image_source }}')"></div>
         </div>
+        <div class="col-12">
+            <button class="btn btn-md btn-danger continue-game">
+                <a href="/game/{{ player[0].url }}/{{ player[0].score|int + 1 }}">Continue Game</a>
+            </button>
+        </div>
         <div class="col-12 player-description text-center">
             <p>{{ player[0].description }}</p>
         </div>
