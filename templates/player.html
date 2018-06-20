@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container player">
+
+    <div class="row">
+
+        <div class="col-12 player-name text-center">
+            <h3>{{ player[0].name }}</h3>
+        </div>
+        <div class="col-12 player-icon text-center">
+            <div class="rounded icon" style="background-image:url('{{ player[0].image_source }}')"></div>
+        </div>
+        <div class="col-12 player-description text-center">
+            <p>{{ player[0].description }}</p>
+        </div>
+    </div>
+    <!--/.row-->
+
+</div>
+<!--/.player-container-->
+
+<div class="container index-leaderboard">
+
+    {% if leaderboard|length > 0 %}
+    <h3 class="cover-heading">
+        <small>Leaderboard</small>
+    </h3>
+    {% endif %} {% for player in leaderboard%}
+    <div class="row">
+        <div class="col-4 text-center">
+            <div class="player-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                <span>{{ loop.index }}</span>
+            </div>
+        </div>
+        <div class="col-6 text-left">
+            <p>{{ player.name }}</p>
+        </div>
+        <div class="col-2 text-left">
+            <p>({{ player.score }})</p>
+        </div>
+    </div>
+    <!--/.row-->
+    {% endfor %}
+
+</div>
+<!--/.index-leaderboard-->
+
+{% endblock %}
