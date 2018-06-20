@@ -80,6 +80,16 @@ header a:hover {
     color: #dd9999;
 }
 
+/*------------------------ player */
+
+.player .player-icon .icon{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: top;
+    margin: 0 auto;
+}
+
 /*------------------------ game */
 
 .leaderboard .player-icon {
@@ -98,7 +108,7 @@ header a:hover {
     color: black;
 }
 
-/*------------------------ game */
+/*------------------------ end */
 
 .end-container .player-icon {
     width: 200px;
