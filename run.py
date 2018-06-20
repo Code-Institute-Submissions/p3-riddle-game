@@ -91,7 +91,7 @@ Views
 def index():
     return render_template("index.html", players=load_players(), leaderboard=get_leaderboard_players())
 
-@app.route("/<player_url>")
+@app.route("/player/<player_url>")
 def player(player_url):
     return render_template("player.html", leaderboard=get_leaderboard_players(), player=get_player_by_url(player_url))
 
