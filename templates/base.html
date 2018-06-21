@@ -22,24 +22,10 @@
   <div class="container">
     <header class="mt-3 mb-5">
       <div class="nav justify-content-center">
-        {% if request.path.split('/')[1] == "player" %}
           <h2 class="masthead-brand">
               The Hobbit
               <span class="d-block"><small>Riddle Game</small></span>
           </h2>
-        {% else %}
-          <h2 class="masthead-brand">
-            {% if request.path.split('/')[2] %}
-            <a href="{{ url_for('player', player_url=request.path.split('/')[2]) }}">
-              {% else %}
-              <a href="{{ url_for('index') }}">
-                {% endif %} The Hobbit
-                <span class="d-block">
-                  <small>Riddle Game</small>
-                </span>
-              </a>
-          </h2>
-        {% endif %}
       </div>
     </header>
 
