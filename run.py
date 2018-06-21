@@ -76,11 +76,21 @@ def get_leaderboard_players():
     players = [p for p in load_players() if p["active"] and p["score"] > 0]
     return sorted(players, key=lambda k: k["score"], reverse=True)
 
+
 def get_player_by_url(player_url):
     """
     Return the player dict that corresponds to the provided player_url
     """
     return [player for player in load_players() if player["url"] == player_url]
+
+
+def players_are_available():
+    players = load_players()
+    available_players = [player for player in players if player["active"] == False]
+    if len(available_players) > 0:
+        return True
+    else:
+        return False
 
 
 """
@@ -89,6 +99,11 @@ Views
 
 @app.route("/")
 def index():
+
+    # If all players have been chosen, reset player at top of the leaderboard
+    if not players_are_available():
+        reset_player(get_leaderboard_players()[0]["url"])
+
     return render_template("index.html", players=load_players(), leaderboard=get_leaderboard_players())
 
 @app.route("/player/<player_url>")
@@ -117,17 +132,11 @@ def game(player_url, riddle_number):
 
             # All riddles answered
             if current_riddle_index == len(riddles)-1:
-
-                # Reset player
-                reset_player(player_url)
-
                 return redirect(url_for('end', player_url=player_url))
 
             # Next riddle
             else:
-                return redirect(url_for('game',
-                                         player_url=player_url,
-                                         riddle_number=next_riddle_number))
+                return redirect(url_for('game', player_url=player_url, riddle_number=next_riddle_number))
 
         # Incorrect answer - try again
         else:
