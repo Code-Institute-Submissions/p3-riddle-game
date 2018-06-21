@@ -32,7 +32,7 @@ def update_players(players):
 
 
 def check_answer(riddle, answer):
-    return riddle["answer"] in answer
+    return riddle["answer"] in answer.lower()
 
 
 def increment_score(player_url):
