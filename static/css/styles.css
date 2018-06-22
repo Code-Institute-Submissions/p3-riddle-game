@@ -1,6 +1,13 @@
 /*------------------------ general */
+
 body {
     box-shadow: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+.cursive-font {
+    font-family: 'Tangerine', cursive;
 }
 
 .cover-container {
@@ -82,7 +89,7 @@ header a:hover {
 
 /*------------------------ player */
 
-.player .player-icon .icon{
+.player .player-icon .icon {
     width: 200px;
     height: 200px;
     background-size: cover;
