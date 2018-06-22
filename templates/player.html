@@ -1,58 +1,62 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-<div class="container player">
+<div class="player-page">
 
-    <div class="row">
+    <section class="container player">
 
-        <div class="col-12 player-name text-center">
-            <h3 class="cursive-font">{{ player[0].name }}</h3>
-        </div>
-        <div class="col-12 player-icon text-center">
-            <div class="rounded icon" style="background-image:url('{{ player[0].image_source }}')"></div>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-md btn-danger continue-game">
-                <a href="/game/{{ player[0].url }}/{{ player[0].score|int + 1 }}">Continue Game</a>
-            </button>
-        </div>
-        <div class="col-12 player-description text-center">
-            <p>{{ player[0].description }}</p>
-        </div>
-    </div>
-    <!--/.row-->
+        <div class="row">
 
-</div>
-<!--/.player-container-->
-
-<div class="container leaderboard">
-
-    <h3 class="cover-heading">
-        <small>Leaderboard</small>
-    </h3>
-
-    {% for player in leaderboard %}
-    <div class="row {{ 'current-player' if player.url == request.path.split('/')[2] }}">
-        <div class="col-4 text-center">
-            <div class="player-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
-                <span>{{ loop.index }}</span>
+            <div class="col-12 player-name text-center">
+                <h3 class="cursive-font">{{ player[0].name }}</h3>
+            </div>
+            <div class="col-12 text-center">
+                <div class="rounded icon player-icon" style="background-image:url('{{ player[0].image_source }}')"></div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-md btn-danger my-4 continue-game">
+                    <a href="/game/{{ player[0].url }}/{{ player[0].score|int + 1 }}">Continue Game</a>
+                </button>
+            </div>
+            <div class="col-12 player-description text-center">
+                <p>{{ player[0].description }}</p>
             </div>
         </div>
-        <div class="col-6 text-left">
-            <p>{{ player.name }}</p>
+        <!--/.row-->
+
+    </section><!--/.player-->
+
+    <section class="container leaderboard my-4">
+
+        <h3 class="cover-heading">
+            <small>Leaderboard</small>
+        </h3>
+
+        {% for player in leaderboard %}
+        <div class="row">
+            <div class="col-4 text-center">
+                <div class="icon leaderboard-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                    <span>{{ loop.index }}</span>
+                </div>
+            </div>
+            <div class="col-6 text-left">
+                <p>{{ player.name }}</p>
+            </div>
+            <div class="col-2 text-left">
+                <p>({{ player.score }})</p>
+            </div>
         </div>
-        <div class="col-2 text-left">
-            <p>({{ player.score }})</p>
-        </div>
-    </div>
 
-    {% else %}
-    <p class="text-center">
-        No scores yet...
-    </p>
+        {% else %}
+        <p class="text-center">
+            No scores yet...
+        </p>
 
-    {% endfor %}
+        {% endfor %}
 
-</div>
-<!--/.index-leaderboard-->
+    </section>
+    <!--/.leaderboard-->
+
+</div><!-- /.player-page -->
 
 {% endblock %}

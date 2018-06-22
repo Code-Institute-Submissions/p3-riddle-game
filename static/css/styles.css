@@ -26,47 +26,50 @@ header a:hover {
     text-decoration: none;
 }
 
-/*------------------------ index */
+/*------------------------ player icons */
 
-.index-leaderboard .row {
-    margin: 1rem;
-}
-
-.index-leaderboard p {
-    height: 100%;
-    margin-bottom: 0;
-    margin-top: 15px;
-}
-
-.player-icon {
-    padding: 1rem;
-}
-
-.player-icon a {
-    background-size: cover;
-    background-position: top;
-    margin: 0 auto;
-}
-
-.player-icon span {
+.icon span {
     display: inline-block;
     height: 50%;
     width: 100%;
     margin-top: 50%;
 }
 
-.index-players .player-icon a {
-    width: 100px;
-    height: 100px;
-}
-
-.index-leaderboard .player-icon {
-    width: 50px;
-    height: 50px;
+.player-icon {
     background-size: cover;
     background-position: top;
     margin: 0 auto;
 }
+
+/*------------------------ leaderboard */
+
+.leaderboard .row {
+    margin: 1rem;
+}
+
+.leaderboard p {
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+.leaderboard-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: top;
+    float: right;
+}
+
+.leaderboard .current-player {
+    background-color: #fafafa;
+}
+
+.leaderboard .current-player p {
+    color: black;
+}
+
+/*------------------------ index page */
 
 .overlay {
     position: absolute;
@@ -87,39 +90,28 @@ header a:hover {
     color: #dd9999;
 }
 
-/*------------------------ player */
+.select-player .player-icon {
+    width: 100px;
+    height: 100px;
+}
 
-.player .player-icon .icon {
+/*------------------------ player page */
+
+.player .player-icon {
     width: 200px;
     height: 200px;
-    background-size: cover;
-    background-position: top;
-    margin: 0 auto;
 }
 
-/*------------------------ game */
+/*------------------------ game page */
 
-.leaderboard .player-icon {
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-position: top;
-    float: right;
+.game-page .player-icon {
+    width: 150px;
+    height: 150px;
 }
 
-.leaderboard .current-player {
-    background-color: #fafafa;
-}
+/*------------------------ end page */
 
-.leaderboard .current-player p {
-    color: black;
-}
-
-/*------------------------ end */
-
-.end-container .player-icon {
+.end-page .player-icon {
     width: 200px;
     height: 200px;
-    background-size: cover;
-    background-position: center;
 }
