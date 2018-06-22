@@ -1,8 +1,19 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3>Riddle {{ riddle_number }}</h3>
+<div class="container player">
+    <div class="row">
+        <div class="col-12 player-name text-center">
+            <h3>{{ player[0].name }}</h3>
+        </div>
+        <div class="col-12 player-icon text-center">
+            <div class="rounded icon" style="background-image:url('{{ player[0].image_source }}')"></div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container riddle">
+    <h3>Riddle {{ riddle_number }}</h3>
 
     {% set lines = riddle.question.split('\n') %} {% for line in lines %}
     <p>{{ line }}</p>

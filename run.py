@@ -146,7 +146,7 @@ def game(player_url, riddle_number):
                                     incorrect_msg="'{0}' is not the right answer. Try again.".format(user_input))
 
     # GET request
-    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, players=load_players(), leaderboard=get_leaderboard_players())
+    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, player=get_player_by_url(player_url), leaderboard=get_leaderboard_players())
 
 
 @app.route("/end/<player_url>")
