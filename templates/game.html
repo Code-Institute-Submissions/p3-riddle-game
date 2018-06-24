@@ -3,7 +3,7 @@
 
 <div class="game-page">
 
-    <section class="container player pb-4">
+    <section class="container-fluid player pb-4">
         <div class="row">
             <div class="col-12 player-name text-center">
                 <h3 class="cursive-font">{{ player[0].name }}</h3>
@@ -14,7 +14,7 @@
         </div>
     </section><!-- /.player -->
 
-    <section class="container riddle bg-brown py-3">
+    <section class="container-fluid riddle bg-brown py-3">
         <h3 class="pb-3">Riddle {{ riddle_number }}</h3>
 
         {% set lines = riddle.question.split('\n') %}
@@ -23,7 +23,7 @@
         {% endfor %}
     </section><!-- /.riddle -->
 
-    <section class="container answer py-4">
+    <section class="container-fluid answer py-4">
         <form method="POST" class="w-50 mx-auto">
             <div class="form-group">
                 <label for="answer">Enter your answer:</label>
@@ -35,7 +35,7 @@
         <p class="incorrect-msg">{{ incorrect_msg }}</p>
     </section><!-- /.answer -->
 
-    <section class="container leaderboard bg-brown">
+    <section class="container-fluid leaderboard bg-brown">
 
         <h3 class="cover-heading">
             <small>Leaderboard</small>
