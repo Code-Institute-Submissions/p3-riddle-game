@@ -3,7 +3,7 @@
 
 <div class="player-page">
 
-    <section class="container player">
+    <section class="container player pb-3">
 
         <div class="row">
 
@@ -13,7 +13,7 @@
             <div class="col-12 text-center">
                 <div class="rounded icon player-icon" style="background-image:url('{{ player[0].image_source }}')"></div>
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
                 <button class="btn btn-md btn-danger my-4 continue-game">
                     <a href="/game/{{ player[0].url }}/{{ player[0].score|int + 1 }}">Continue Game</a>
                 </button>
@@ -26,7 +26,7 @@
 
     </section><!--/.player-->
 
-    <section class="container leaderboard my-4">
+    <section class="container leaderboard bg-brown my-4">
 
         <h3 class="cover-heading">
             <small>Leaderboard</small>

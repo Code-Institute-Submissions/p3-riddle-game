@@ -22,11 +22,45 @@ hr {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-header a:hover {
+a:hover {
     text-decoration: none;
 }
 
+/*------------------------ main */
+
+.main {
+    min-height: 80%;
+}
+
+/*------------------------ footer */
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+/*------------------------ background colors */
+
+.bg-brown {
+    background-color: #795548;
+}
+
+.bg-black {
+    background-color: black;
+}
+
 /*------------------------ player icons */
+
+.icon {
+    border: 5px double #fafafa;
+}
 
 .icon span {
     display: inline-block;
@@ -44,11 +78,16 @@ header a:hover {
 /*------------------------ leaderboard */
 
 .leaderboard {
-    background-image: url('../images/leaderboard-bg.jpg')
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .leaderboard .row {
     margin: 1rem;
+}
+
+.leaderboard .small {
+    font-weight: 600;
 }
 
 .leaderboard p {
@@ -111,6 +150,10 @@ header a:hover {
 .game-page .player-icon {
     width: 150px;
     height: 150px;
+}
+
+.game-page .incorrect-msg {
+    margin-bottom: 0;
 }
 
 /*------------------------ end page */

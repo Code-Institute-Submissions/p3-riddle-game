@@ -3,7 +3,7 @@
 
 <div class="game-page">
 
-    <section class="container player">
+    <section class="container player pb-4">
         <div class="row">
             <div class="col-12 player-name text-center">
                 <h3 class="cursive-font">{{ player[0].name }}</h3>
@@ -14,8 +14,8 @@
         </div>
     </section><!-- /.player -->
 
-    <section class="container riddle">
-        <h3>Riddle {{ riddle_number }}</h3>
+    <section class="container riddle bg-brown py-3">
+        <h3 class="pb-3">Riddle {{ riddle_number }}</h3>
 
         {% set lines = riddle.question.split('\n') %}
         {% for line in lines %}
@@ -23,23 +23,19 @@
         {% endfor %}
     </section><!-- /.riddle -->
 
-    <hr>
-
-    <section class="container answer">
+    <section class="container answer py-4">
         <form method="POST" class="w-50 mx-auto">
             <div class="form-group">
                 <label for="answer">Enter your answer:</label>
                 <textarea class="form-control" name="answer" id="answer" rows="1"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger">Submit</button>
         </form>
 
-        <p>{{ incorrect_msg }}</p>
+        <p class="incorrect-msg">{{ incorrect_msg }}</p>
     </section><!-- /.answer -->
 
-    <hr>
-
-    <section class="container leaderboard my-4">
+    <section class="container leaderboard bg-brown">
 
         <h3 class="cover-heading">
             <small>Leaderboard</small>
