@@ -43,6 +43,10 @@ header a:hover {
 
 /*------------------------ leaderboard */
 
+.leaderboard {
+    background-image: url('../images/leaderboard-bg.jpg')
+}
+
 .leaderboard .row {
     margin: 1rem;
 }
