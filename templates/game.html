@@ -14,7 +14,8 @@
         </div>
     </section><!-- /.player -->
 
-    <section class="container-fluid riddle bg-brown py-3">
+    {% set riddle_bg = url_for('static', filename='images/riddle'+riddle_number+'.jpg') %}
+    <section class="container-fluid riddle py-3" style="background: no-repeat center center linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{riddle_bg}}); background-size:cover;">
         <h3 class="pb-3">Riddle {{ riddle_number }}</h3>
 
         {% set lines = riddle.question.split('\n') %}
