@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="game-page">
 
@@ -9,23 +8,24 @@
                 <h3 class="cursive-font">{{ player[0].name }}</h3>
             </div>
             <div class="col-12 text-center">
-                    <a href="/player/{{ player[0].url }}" class="d-block icon player-icon rounded" style="background-image:url('{{ player[0].image_source }}')"></a>
+                <a href="/player/{{ player[0].url }}" class="d-block icon player-icon rounded" style="background-image:url('{{ player[0].image_source }}')"></a>
             </div>
         </div>
-    </section><!-- /.player -->
+    </section>
+    <!-- /.player -->
 
     {% set riddle_bg = url_for('static', filename='images/riddle'+riddle_number+'.jpg') %}
     <section class="container-fluid riddle py-3" style="background: no-repeat center center linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{riddle_bg}}); background-size:cover;">
         <h3 class="pb-3">Riddle {{ riddle_number }}</h3>
 
-        {% set lines = riddle.question.split('\n') %}
-        {% for line in lines %}
+        {% set lines = riddle.question.split('\n') %} {% for line in lines %}
         <p>{{ line }}</p>
         {% endfor %}
-    </section><!-- /.riddle -->
+    </section>
+    <!-- /.riddle -->
 
     <section class="container-fluid answer py-4">
-        <form method="POST" class="w-50 mx-auto">
+        <form method="POST" class="mx-auto">
             <div class="form-group">
                 <label for="answer">Enter your answer:</label>
                 <textarea class="form-control" name="answer" id="answer" rows="1"></textarea>
@@ -34,7 +34,8 @@
         </form>
 
         <p class="incorrect-msg">{{ incorrect_msg }}</p>
-    </section><!-- /.answer -->
+    </section>
+    <!-- /.answer -->
 
     <section class="container-fluid leaderboard bg-brown">
 
@@ -42,31 +43,34 @@
             <small>Leaderboard</small>
         </h3>
 
-        {% for player in leaderboard %}
         <div class="row">
-            <div class="col-4 text-center">
-                <div class="icon leaderboard-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
-                    <span>{{ loop.index }}</span>
+            {% for player in leaderboard %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="icon leaderboard-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                            <span>{{ loop.index }}</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-left">
+                        <p>{{ player.name }}</p>
+                    </div>
+                    <div class="col-2 text-left">
+                        <p>({{ player.score }})</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 text-left">
-                <p>{{ player.name }}</p>
-            </div>
-            <div class="col-2 text-left">
-                <p>({{ player.score }})</p>
-            </div>
+            {% else %}
+            <p class="text-center">
+                No scores yet...
+            </p>
+            {% endfor %}
         </div>
-
-        {% else %}
-        <p class="text-center">
-            No scores yet...
-        </p>
-
-        {% endfor %}
 
     </section>
     <!--/.leaderboard-->
 
-</div><!-- /.game-page -->
+</div>
+<!-- /.game-page -->
 
 {% endblock %}

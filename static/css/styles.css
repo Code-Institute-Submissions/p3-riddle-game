@@ -84,7 +84,7 @@ a:hover {
     padding-bottom: 1rem;
 }
 
-.leaderboard .row {
+.leaderboard > .row {
     margin: 1rem;
 }
 
@@ -113,20 +113,6 @@ a:hover {
 
 .leaderboard .current-player p {
     color: black;
-}
-
-@media (min-width: 768px) {
-    .leaderboard .row {
-        width: 80%;
-        margin: 1rem auto;
-    }
-}
-
-@media (min-width: 992px) {
-    .leaderboard .row {
-        width: 100%;
-        margin: 1rem auto;
-    }
 }
 
 /*------------------------ index page */
@@ -188,8 +174,24 @@ a:hover {
     height: 150px;
 }
 
+.game-page form {
+    width: 50%;
+}
+
 .game-page .incorrect-msg {
     margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .game-page form {
+        width: 40%;
+    }
+}
+
+@media (min-width: 992px) {
+    .game-page form {
+        width: 30%;
+    }
 }
 
 /*------------------------ end page */
