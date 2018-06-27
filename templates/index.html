@@ -30,35 +30,38 @@
 
     </section><!--/.select-player-->
 
-    <section class="container-fluid leaderboard bg-brown my-4">
+    <section class="container-fluid leaderboard bg-brown">
 
         <h3 class="cover-heading">
             <small>Leaderboard</small>
         </h3>
 
-        {% for player in leaderboard %}
         <div class="row">
-            <div class="col-4 text-center">
-                <div class="icon leaderboard-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
-                    <span>{{ loop.index }}</span>
+            {% for player in leaderboard %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <div class="icon leaderboard-icon d-block rounded" style="background-image:url('{{ player.image_source }}')">
+                            <span>{{ loop.index }}</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-left">
+                        <p>{{ player.name }}</p>
+                    </div>
+                    <div class="col-2 text-left">
+                        <p>({{ player.score }})</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 text-left">
-                <p>{{ player.name }}</p>
-            </div>
-            <div class="col-2 text-left">
-                <p>({{ player.score }})</p>
-            </div>
+            {% else %}
+            <p class="text-center">
+                No scores yet...
+            </p>
+            {% endfor %}
         </div>
 
-        {% else %}
-        <p class="text-center">
-            No scores yet...
-        </p>
-
-        {% endfor %}
-
-    </section><!--/.leaderboard-->
+    </section>
+    <!--/.leaderboard-->
 
 </div><!-- /.index-page -->
 
