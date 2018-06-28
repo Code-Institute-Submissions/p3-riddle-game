@@ -88,6 +88,11 @@ a:hover {
     margin: 1rem;
 }
 
+.leaderboard-item {
+    margin: 0.4rem 0;
+    padding: 0;
+}
+
 .leaderboard .small {
     font-weight: 600;
 }
@@ -157,6 +162,11 @@ a:hover {
         width: 33%;
         float: right;
         margin-top: 5rem !important;
+    }
+
+    .index-page .leaderboard-item {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 
