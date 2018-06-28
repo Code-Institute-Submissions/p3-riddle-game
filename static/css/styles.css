@@ -177,8 +177,8 @@ a:hover {
     height: 200px;
 }
 
-.player-page p {
-    padding: 1rem;
+.player-description p {
+    padding: 0 1rem;
 }
 
 /*------------------------ game page */
