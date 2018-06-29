@@ -3,15 +3,16 @@
 
 *Developer: sarahloh*
 
-1. [Project Brief](#1.-project-brief)
-2. [Technologies](#2.-technologies-and-dependencies)
-4. [Workflow](#3.-workflow)
-4. [UXD](#4.-uxd)
-5. [Wireframes](#5.-wireframes)
-6. [Testing](#6.-testing)
-7. [Heroku Deployment](#7.-heroku-deployment)
+1. [Project Brief](#1-project-brief)
+2. [Technologies](#2-technologies-and-dependencies)
+4. [Workflow](#3-workflow)
+4. [UXD](#4-uxd)
+5. [Wireframes](#5-wireframes)
+6. [Testing](#6-testing)
+7. [Heroku Deployment](#7-heroku-deployment)
+7. [How To Deploy Locally](#8-how-to-deploy-locally)
 
-### 1. Project Brief
+### 1 Project Brief
 
 In this project, you’ll be building a logic-driven application using the technologies that you have learned throughout Practical Python. You can either choose to use the example brief below or choose to use your idea for the website.
 
@@ -26,7 +27,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 - Create a leaderboard that ranks top scores for all users.
 
 
-### 2. Technologies and Dependencies
+### 2 Technologies and Dependencies
 
 **Backend**
 
@@ -50,7 +51,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 - [Github](https://github.com)
 
 
-### 3. Workflow
+### 3 Workflow
 
 - Find riddles and create riddles.json
 - Create project directory with readme
@@ -73,7 +74,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 - Deploy to Heroku (may need to install Heroku Toolbelt)
 
 
-### 4. UXD
+### 4 UXD
 
 #### Strategy
 
@@ -132,12 +133,152 @@ Build a web application game that asks players to guess the answer to a pictoria
 |                                                             |  |
 |                                                             |  |
 
-### 5. Wireframes
+### 5 Wireframes
 
 ![Wireframes](https://raw.githubusercontent.com/sarahloh/p3-riddle-game/master/static/images/readme/wireframes.jpg)
 
 
-### 6. Testing
+### 6 Testing
+
+I used the **Test Before** approach to Test Driven Development, using Python's **unittest** class.
+
+I created a file called test_riddle_game.py and wrote the first test (below) which failed.  Then I wrote a function in run.py to make the test pass.  I continued in this way until I had all of the functionality required to build the game.
+
+---
+
+*Test 1*
+
+```python
+def test_load_players(self):
+        """
+        Test to ensure we can read players list from json file
+        """
+        players = run.load_players()
+        self.assertEqual(len(players),15)
+```
+
+*code in run.py*
+
+```python
+def load_players():
+    """
+    Read players data from JSON file
+    """
+    with open("data/players.json", "r") as read_file:
+        data = json.load(read_file)
+        return data
+```
+
+---
+
+*Test 2*
+
+```python
+def test_load_riddles(self):
+        """
+        Test to ensure we can read riddles list from json file
+        """
+        riddles = run.load_riddles()
+        self.assertEqual(len(riddles),6)
+```
+
+*code in run.py*
+
+```python
+def load_riddles():
+    """
+    Read riddles data from JSON file
+    """
+    with open("data/riddles.json", "r") as read_file:
+        data = json.load(read_file)
+        return data
+```
+
+---
+
+*Test 3*
+
+```python
+def test_update_player(self):
+    """
+    Test to ensure we can update a player's status in players.json
+    """
+    players = run.load_players()
+    players[0]["available"] = False
+    run.update_players(players)
+    self.assertEqual(run.load_players()[0]["available"], False)
+```
+
+*code in run.py*
+
+```python
+def update_players(players):
+    """
+    Update the players JSON file
+    """
+    with open("data/players.json", "w") as write_file:
+        json.dump(players, write_file, indent=4)
+```
+
+---
+
+*Test 4*
+
+```python
+def test_compare_answer(self):
+    """
+    Test to check if an inputted answer is correct or not
+    """
+    riddles = run.load_riddles()
+    self.assertEqual(run.check_answer(riddles[0], "mountain"), True)
+    self.assertEqual(run.check_answer(riddles[0], "river"), False)
+```
+
+*code in run.py*
+
+```python
+def check_answer(riddle, answer):
+    return riddle["answer"] in answer.lower()
+```
+
+---
+
+*Test 5*
+
+```python
+def test_reset_player(self):
+    """
+    Test to ensure we can reset a player's score and availability
+    when they finish the game
+    """
+    players = run.load_players()
+    players[0]["active"] = True
+    run.increment_score(players[0]["url"])
+    run.update_players(players)
+
+    run.reset_player(players[0]["url"])
+    self.assertEqual(run.load_players()[0]["active"], False)
+    self.assertEqual(run.load_players()[0]["score"], 0)
+```
+
+*code in run.py*
+
+```python
+def reset_player(player_url):
+    """
+    Returns a player's score to zero and active status to false
+    """
+    players = load_players()
+    for p in players:
+        if p["url"] == player_url:
+            p["active"] = False
+            p["score"] = 0
+    update_players(players)
+```
+
+---
+
+
 
 <!--
 [**HTML Validator Results**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F)
@@ -145,4 +286,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 [**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
  -->
 
-### 7. Heroku Deployment
+### 7 Heroku Deployment
+
+
+### 8 How To Deploy Locally
