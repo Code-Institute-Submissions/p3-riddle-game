@@ -5,12 +5,13 @@
 
 1. [Project Brief](#1-project-brief)
 2. [Technologies](#2-technologies-and-dependencies)
-4. [Workflow](#3-workflow)
-4. [UXD](#4-uxd)
-5. [Wireframes](#5-wireframes)
-6. [Testing](#6-testing)
-7. [Heroku Deployment](#7-heroku-deployment)
-7. [How To Deploy Locally](#8-how-to-deploy-locally)
+3. [Workspace](#3-workspace)
+4. [Workflow](#4-workflow)
+5. [UXD](#5-uxd)
+6. [Wireframes](#6-wireframes)
+7. [Testing](#7-testing)
+8. [Heroku Deployment](#8-heroku-deployment)
+9. [How To Deploy Locally](#9-how-to-deploy-locally)
 
 ### 1 Project Brief
 
@@ -31,18 +32,14 @@ Build a web application game that asks players to guess the answer to a pictoria
 
 **Backend**
 
-- [Python](https://www.python.org)
+- [Python3](https://www.python.org)
 - [Flask](http://flask.pocoo.org)
 
 **Frontend**
 
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-- [Bootstrap v4.1.0](https://getbootstrap.com/docs/4.1/)
-- - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
-- - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
-- [Font Awesome v4.7.0](https://fontawesome.com/v4.7.0/)
-- - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+- [Bootstrap v4.1.1](https://getbootstrap.com/docs/4.1/)
 - [jQuery v3.3.1](https://jquery.com)
 
 **Version Control**
@@ -51,7 +48,16 @@ Build a web application game that asks players to guess the answer to a pictoria
 - [Github](https://github.com)
 
 
-### 3 Workflow
+### 3 Workspace
+
+**Operating System** - [macOS High Sierra](https://en.wikipedia.org/wiki/MacOS_High_Sierra)
+**Package Manager** - [Homebrew](https://brew.sh)
+**Editor** - [Visual Studio Code](https://code.visualstudio.com)
+**Language** - [Python3](https://www.python.org)
+**Microframework** - [Flask](http://flask.pocoo.org)
+**Testing**	- [unittest](https://docs.python.org/3/library/unittest.html)
+
+### 4 Workflow
 
 - Find riddles and create riddles.json
 - Create project directory with readme
@@ -74,7 +80,7 @@ Build a web application game that asks players to guess the answer to a pictoria
 - Deploy to Heroku (may need to install Heroku Toolbelt)
 
 
-### 4 UXD
+### 5 UXD
 
 #### Strategy
 
@@ -133,12 +139,12 @@ Build a web application game that asks players to guess the answer to a pictoria
 |                                                             |  |
 |                                                             |  |
 
-### 5 Wireframes
+### 6 Wireframes
 
 ![Wireframes](https://raw.githubusercontent.com/sarahloh/p3-riddle-game/master/static/images/readme/wireframes.jpg)
 
 
-### 6 Testing
+### 7 Testing
 
 I used the **Test Before** approach to Test Driven Development, using Python's **unittest** class.
 
@@ -286,7 +292,51 @@ def reset_player(player_url):
 [**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
  -->
 
-### 7 Heroku Deployment
+### 8 Heroku Deployment
+
+1. Create a new app 'hobbit-riddle-game' on heroku.com
+
+2. Install [Heroku CLI](https://devcenter.heroku.com/categories/command-line)
+    - $ brew install heroku/brew/heroku
+
+3. Login to heroku with email abd password
+    - $ heroku login
+
+4. Check app is there
+    - $ heroku apps
+
+5. Add heroku remote
+    - $ heroku git:remote -a hobbit-riddle-game
+
+6. Add Procfile (this tells heroku what to do with the project)
+    - $ echo web: python run.py > Procfile
+
+7. Git commit and push to heroku remote
+    - $ git add Procfile
+    - $ git ci -m 'Add Profile for heroku deployment'
+    - $ git push -u heroku master
+
+8. Set up dynos
+    - $ heroku ps:scale web=1
+
+9. Setup config variables on heroku dashboard
+
+    ![Config Variables](https://raw.githubusercontent.com/sarahloh/p3-riddle-game/master/static/images/readme/config-vars.png)
+
+10. Restart dynos
+
+    ![Restart Dynos](https://raw.githubusercontent.com/sarahloh/p3-riddle-game/master/static/images/readme/restart-dynos.png)
 
 
-### 8 How To Deploy Locally
+### 9 How To Deploy Locally
+
+```console
+$ git clone git@github.com:sarahloh/p3-riddle-game.git
+$ cd p3-riddle-game
+$ pip3 install -r requirements.txt
+$ python3 run.py
+```
+App available at http://127.0.0.1:5000/
+
+
+
