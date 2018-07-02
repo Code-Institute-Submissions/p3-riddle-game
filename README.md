@@ -54,10 +54,15 @@ Build a web application game that asks players to guess the answer to a pictoria
 ### 3 Workspace
 
 **Operating System** - [macOS High Sierra](https://en.wikipedia.org/wiki/MacOS_High_Sierra)
+
 **Package Manager** - [Homebrew](https://brew.sh)
+
 **Editor** - [Visual Studio Code](https://code.visualstudio.com)
+
 **Language** - [Python3](https://www.python.org)
+
 **Microframework** - [Flask](http://flask.pocoo.org)
+
 **Testing**	- [unittest](https://docs.python.org/3/library/unittest.html)
 
 ### 4 Workflow
