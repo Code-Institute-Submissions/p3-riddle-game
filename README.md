@@ -61,6 +61,8 @@ Build a web application game that asks players to guess the answer to a pictoria
 
 **Language** - [Python3](https://www.python.org)
 
+**Formatting** - [Autopep-8](https://marketplace.visualstudio.com/items?itemName=himanoa.Python-autopep8)
+
 **Microframework** - [Flask](http://flask.pocoo.org)
 
 **Testing**	- [unittest](https://docs.python.org/3/library/unittest.html)
