@@ -158,7 +158,7 @@ def end(player_url):
 # To run on Heroku
 if __name__ == '__main__':
     app.run(host=os.getenv('IP'),
-            port=os.getenv('POST'),
+            port=os.getenv('PORT'),
             debug=True)
 
 # To run in Cloud 9

@@ -3,6 +3,9 @@
 
 *Developer: sarahloh*
 
+App available at https://hobbit-riddle-game.herokuapp.com/
+
+
 1. [Project Brief](#1-project-brief)
 2. [Technologies](#2-technologies-and-dependencies)
 3. [Workspace](#3-workspace)
