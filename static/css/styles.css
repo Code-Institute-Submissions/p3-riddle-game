@@ -88,6 +88,11 @@ a:hover {
     margin: 1rem;
 }
 
+.leaderboard > .row > p {
+    display: block;
+    width: 100%;
+}
+
 .leaderboard-item {
     margin: 0.4rem 0;
     padding: 0;
