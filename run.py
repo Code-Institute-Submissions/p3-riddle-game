@@ -159,7 +159,7 @@ def end(player_url):
 if __name__ == '__main__':
     app.run(host=os.getenv('IP'),
             port=os.getenv('PORT'),
-            debug=True)
+            debug=False)
 
 # To run in Cloud 9
 # if __name__ == '__main__':
