@@ -288,12 +288,10 @@ def reset_player(player_url):
 ---
 
 
+[**HTML Validator Results**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fhobbit-riddle-game.herokuapp.com%2F)
 
-<!--
-[**HTML Validator Results**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F)
+[**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fhobbit-riddle-game.herokuapp.com&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-[**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
- -->
 
 ### 8 Heroku Deployment
 
