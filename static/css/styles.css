@@ -198,6 +198,7 @@ a:hover {
 }
 
 .game-page .incorrect-msg {
+    margin-top: 1rem;
     margin-bottom: 0;
 }
 

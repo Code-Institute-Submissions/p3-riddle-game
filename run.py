@@ -136,17 +136,25 @@ def game(player_url, riddle_number):
 
             # Next riddle
             else:
-                return redirect(url_for('game', player_url=player_url, riddle_number=next_riddle_number))
+                return redirect(url_for('game',
+                                         player_url=player_url,
+                                         riddle_number=next_riddle_number))
 
         # Incorrect answer - try again
         else:
             return render_template("game.html",
                                     riddle=riddles[current_riddle_index],
                                     riddle_number=riddle_number,
-                                    incorrect_msg="'{0}' is not the right answer. Try again.".format(user_input))
+                                    incorrect_msg="'{0}' is not the right answer. Try again.".format(user_input),
+                                    player=get_player_by_url(player_url),
+                                    leaderboard=get_leaderboard_players())
 
     # GET request
-    return render_template("game.html", riddle=riddles[current_riddle_index], riddle_number=riddle_number, player=get_player_by_url(player_url), leaderboard=get_leaderboard_players())
+    return render_template("game.html",
+                            riddle=riddles[current_riddle_index],
+                            riddle_number=riddle_number,
+                            player=get_player_by_url(player_url),
+                            leaderboard=get_leaderboard_players())
 
 
 @app.route("/end/<player_url>")
